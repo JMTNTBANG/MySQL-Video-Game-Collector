@@ -1,0 +1,19 @@
+{
+  "name": "mysql-video-game-collector",
+  "version": "0.0.0",
+  "description": "Log your Video Game Collection with this MySQL Integrated Web Interface",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JMTNTBANG/MySQL-Video-Game-Collector.git"
+  },
+  "author": "JMTNTBANG",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/JMTNTBANG/MySQL-Video-Game-Collector/issues"
+  },
+  "homepage": "https://github.com/JMTNTBANG/MySQL-Video-Game-Collector#readme"
+}
