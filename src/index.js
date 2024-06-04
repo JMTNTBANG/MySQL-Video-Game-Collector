@@ -5,7 +5,7 @@ const https = require("https");
 const express = require("express");
 const session = require("express-session");
 
-function init(prefix = undefined, website = undefined) {
+function init(prefix = "/", website = undefined) {
   if (!module.parent) {
     website = express();
   }
@@ -14,15 +14,13 @@ function init(prefix = undefined, website = undefined) {
   );
   website.use(express.json());
   website.use(express.urlencoded({ extended: true }));
-  website.use(express.static(path.join(__dirname, "static")));
+  website.use(express.static(`${__dirname}static`));
 
   for (const getRequest of fs.readdirSync(`${__dirname}/requests/get/`)) {
-    let request = require(`${__dirname}/requests/get/${getRequest}`);
-    request.init(prefix, website);
+    require(`${__dirname}/requests/get/${getRequest}`).init(prefix, website);
   }
   for (const postRequest of fs.readdirSync(`${__dirname}/requests/post/`)) {
-    let request = require(`${__dirname}/requests/post/${postRequest}`);
-    request.init(prefix, website);
+    require(`${__dirname}/requests/post/${postRequest}`).init(prefix, website);
   }
   if (!module.parent) {
     try {
