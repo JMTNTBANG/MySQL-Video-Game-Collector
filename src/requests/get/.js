@@ -1,7 +1,9 @@
 module.exports = {
-  init: function init(prefix, website) {
+  init: (prefix, website) => {
     website.get(prefix, (request, response) => {
-      response.send("Home");
+      if (!request.session.loggedin) {
+        response.sendFile(`${__dirname.slice(0, -13)}/login.html`);
+      }
     });
   },
 };
