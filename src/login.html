@@ -1,36 +1,41 @@
-<link rel="stylesheet" href="/styles.css">
-<script>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6a8;
+    }
+
+    .login {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <script>
     window.onload = () => {
       if (window.location.pathname.substr(-1) == "/")
         document.login.action = `${window.location.origin}${window.location.pathname}auth`;
       else
         document.login.action = `${window.location.origin}${window.location.pathname}/auth`;
     };
-</script>
+  </script>
+</head>
+
 <body>
   <div class="login">
     <form name="login" action="/auth" method="post">
-      <center><h1>Login</h1></center>
+      <center>
+        <h1>Login</h1>
+      </center>
       <center>
         <label for="username">Username </label>
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          id="username"
-          required
-        />
+        <input type="text" name="username" placeholder="Username" id="username" required />
       </center>
       <br />
       <center>
         <label for="password">Password </label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          id="password"
-          required
-        />
+        <input type="password" name="password" placeholder="Password" id="password" required />
       </center>
       <br />
       <center><input type="submit" value="Login" /></center>

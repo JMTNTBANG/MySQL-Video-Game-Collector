@@ -5,6 +5,8 @@ const https = require("https");
 const express = require("express");
 const session = require("express-session");
 
+const config = require("./config.json")
+
 function init(prefix = "/", website = undefined) {
   if (!module.parent) {
     website = express();
