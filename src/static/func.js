@@ -26,11 +26,21 @@ module.exports = {
             `Access Denied to MySQL Server at ${config.mysql.ip}:${config.mysql.port}, Please Confirm Username and Password are Correct in config.json.`
           );
         } else throw err;
-      } else console.log("Connected to MySQL");
+      }
     });
     return db;
   },
   sendError: (error) => {
     return `<script>alert("${error}"); history.back();</script>`;
+  },
+  debugOverride: (request) => {
+    request.session.vgc = {
+      authenticated: true,
+      username: "debug",
+      userid: "-1",
+    };
+    console.warn(
+      "Warning: Debug Override is Enabled, This is Only Recommended for Local Debugging"
+    );
   },
 };

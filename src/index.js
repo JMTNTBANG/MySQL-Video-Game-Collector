@@ -39,7 +39,7 @@ function init(prefix = "/", website = undefined) {
           console.log("HTTPS Server running on port 443");
         });
     } catch {
-      console.log("Caution: Connections will not be secured");
+      console.warn("Caution: Connections will not be secured");
     }
     http.createServer(website).listen(8080, () => {
       console.log("HTTP Server running on port 8080");
