@@ -1,0 +1,43 @@
+<head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Hello <%= username %>!</h1>
+  <h2>You have a total of <%= totalGames %> Games</h2>
+  <div>
+    <table id="table">
+      <tr></tr>
+      <script>
+        let header = `<%= header %>`.replace(/(&#34;)/gm, "\"");
+        header = JSON.parse(header)
+        let newHeader = "";
+        for (i of header) {
+          newHeader += `<th>${i}</th>`;
+        }
+        let data = `<%= data %>`.replace(/(&#34;)/gm, "\"");
+        data = JSON.parse(data)
+        let newData = "";
+        for (row of data) {
+          newData += "<tr>";
+          for (column of row) {
+            newData += `<td>${column}</td>`;
+          }
+          newData += "</tr>";
+        }
+        document.getElementById(
+          "table"
+        ).innerHTML = `<tr>${newHeader}</tr>${newData}`;
+      </script>
+      <tr>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+      </tr>
+    </table>
+  </div>
+</body>

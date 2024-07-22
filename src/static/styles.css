@@ -3,6 +3,26 @@ body {
   background-color: #ffe6a8;
 }
 
+table,
+th,
+td {
+  background-color: #fdefcb;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table {
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 10%;
+}
+
+th, td {
+  padding-left: 1%;
+}
+
 .login {
   min-height: 100vh;
   display: flex;

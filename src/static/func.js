@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const config = require("../config.json");
 
 module.exports = {
-  connectToMySQL: () => {
+  connectToMySQL: (response, callback) => {
     const db = mysql.createConnection({
       host: config.mysql.ip,
       port: config.mysql.port,
@@ -11,24 +11,26 @@ module.exports = {
     });
     db.connect((err) => {
       if (err) {
-        response.send("Internal Server Error");
+        response.send('<script>alert("Interal Server Error"); history.back();</script>');
         response.end();
         if (err.errno == -3008) {
           console.error(
             `No SQL Server Found at ${config.mysql.ip}:${config.mysql.port}. Please update config.json.`
           );
+          setTimeout(() => process.exit(1), 1000)
         } else if (err.code == "ETIMEDOUT") {
           console.error(
             `Connection to MySQL Server at ${config.mysql.ip}:${config.mysql.port} Timed Out, Please Confirm Host and Ports are Correct in config.json.`
           );
+          setTimeout(() => process.exit(1), 1000)
         } else if (err.errno == 1045) {
           console.error(
             `Access Denied to MySQL Server at ${config.mysql.ip}:${config.mysql.port}, Please Confirm Username and Password are Correct in config.json.`
           );
-        } else throw err;
-      }
+          setTimeout(() => process.exit(1), 1000)
+        } else callback(err, null)
+      } else callback(null, db);
     });
-    return db;
   },
   sendError: (error) => {
     return `<script>alert("${error}"); history.back();</script>`;
