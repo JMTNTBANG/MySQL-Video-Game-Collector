@@ -3,10 +3,10 @@
 </head>
 <body>
     <h1>Hello <%= username %>!</h1>
-    <h2>You have a total of <%= totalGames %> Games</h2>
     <div>
         <button onclick='window.location.pathname = "/collection"'><h3>Go to Collection</h3></button>
-        <button onclick='window.location.pathname = "/newGame"'><h3>Add New Game</h3></button>
-        <button onclick='window.location.pathname = "/config"'><h3>Settings</h3></button>
+        <button onclick='window.location.pathname = "/newAdj"' disabled><h3>Add Game to Collection</h3></button>
+        <button onclick='window.location.pathname = "/newGame"' disabled><h3>Add New Game Entry</h3></button>
+        <button onclick='window.location.pathname = "/stats"' disabled><h3>Stats</h3></button>
     </div>
 </body>
