@@ -1,0 +1,66 @@
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.onload = () => {
+      let reasonCodes = JSON.parse(
+        `<%= reasonCodes %>`.replace(/(&#34;)/gm, '"')
+      );
+      let codes = "";
+      for (i of reasonCodes) {
+        codes += `<option value="${i[0]}">${i[0]}. ${i[1]}</option>`;
+      }
+      document.getElementById("reasonCode").innerHTML = codes;
+    };
+  </script>
+</head>
+<body>
+  <div class="center">
+    <form name="adjust" action="/adjust" method="post">
+      <center>
+        <h1>New Adjustment</h1>
+      </center>
+      <center>
+        <label for="entryID">Entry ID: </label>
+        <input
+          type="number"
+          name="entryID"
+          id="entryID"
+          value="<%= entryID %>"
+          style="width: 100px"
+          required
+        />
+      </center>
+      <br />
+      <center>
+        <label for="reason">Reason: </label>
+        <select type="" name="reasonCode" id="reasonCode"></select>
+      </center>
+      <br />
+      <center>
+        <label for="amount">Amount: </label>
+        <input
+          type="number"
+          name="amount"
+          placeholder="69"
+          id="amount"
+          style="width: 100px"
+          required
+        />
+      </center>
+      <br />
+      <center>
+        <label for="value">Value: </label>
+        <input
+          type="number"
+          name="value"
+          placeholder="$420"
+          id="value"
+          style="width: 100px"
+          required
+        />
+      </center>
+      <br />
+      <center><input type="submit" value="Adjust" /></center>
+    </form>
+  </div>
+</body>

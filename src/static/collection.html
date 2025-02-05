@@ -14,6 +14,10 @@
         for (row of data) {
           newData += "<tr>";
           for (column of row) {
+            if (column == null) continue;
+            if (column.toString().includes("%ID%")) {
+              column = `<a href="/newAdj?entryID=${column.toString().slice(column.toString().indexOf("%ID%")+4, column.toString().indexOf("\n"))}">Adjust</a>\nDetails`
+            }
             newData += `<td>${column}</td>`;
           }
           newData += "</tr>";

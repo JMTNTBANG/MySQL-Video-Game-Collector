@@ -24,7 +24,7 @@ th, td {
   white-space: pre;
 }
 
-.login {
+.center {
   min-height: 100vh;
   display: flex;
   justify-content: center;

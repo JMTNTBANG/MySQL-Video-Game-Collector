@@ -49,7 +49,7 @@ module.exports = {
                     }
                   }
                   let i = []; 
-                  i.push("Adjust\\nDetails", qty);
+                  i.push(`%ID%${results[row].ID}\\nDetails`, qty);
                   for (column in results[row]) {
                     if (hiddenColumns.includes(column)) continue;
                     i.push(results[row][column]);
