@@ -1,14 +1,8 @@
 <head>
   <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <h1>Hello <%= username %>!</h1>
-  <h2>You have a total of <%= totalGames %> Games</h2>
-  <div>
-    <table id="table">
-      <tr></tr>
-      <script>
-        let header = `<%= header %>`.replace(/(&#34;)/gm, "\"");
+  <script>
+    window.onload = () => {
+      let header = `<%= header %>`.replace(/(&#34;)/gm, "\"");
         header = JSON.parse(header)
         let newHeader = "";
         for (i of header) {
@@ -27,17 +21,12 @@
         document.getElementById(
           "table"
         ).innerHTML = `<tr>${newHeader}</tr>${newData}`;
-      </script>
-      <tr>
-        <td>Row 1</td>
-        <td>Row 1</td>
-        <td>Row 1</td>
-      </tr>
-      <tr>
-        <td>Row 2</td>
-        <td>Row 2</td>
-        <td>Row 2</td>
-      </tr>
-    </table>
+    }
+  </script>
+</head>
+<body>
+  <h1>Hello <%= username %>!</h1>
+  <div>
+    <table id="table"></table>
   </div>
 </body>

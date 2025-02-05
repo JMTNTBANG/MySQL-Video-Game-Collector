@@ -21,6 +21,7 @@ table {
 
 th, td {
   padding-left: 1%;
+  white-space: pre;
 }
 
 .login {
