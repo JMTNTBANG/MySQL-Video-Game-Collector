@@ -17,7 +17,7 @@ module.exports = {
               response.send(func.sendError(err));
               return;
             }
-            response.send(`<script>window.location.pathname = "/collection"</script>`);
+            response.send(`<script>window.close()</script>`);
           }
         );
       });

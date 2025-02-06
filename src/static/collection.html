@@ -1,6 +1,15 @@
 <head>
   <link rel="stylesheet" href="styles.css" />
   <script>
+    function openAdjWindow(entryID) {
+      let adjWindow = open(`/newAdj?entryID=${entryID}`, "adjWindow", "height=600, width=500, left=200, top=200, menubar=no, resizeable=no, scrollbars=no, status=no");
+      adjWindow.onbeforeunload = () => {
+        setTimeout(() => {
+          location.reload()
+        }, 1000)
+      }
+
+    }
     window.onload = () => {
       let header = `<%= header %>`.replace(/(&#34;)/gm, "\"");
         header = JSON.parse(header)
@@ -16,7 +25,7 @@
           for (column of row) {
             if (column == null) continue;
             if (column.toString().includes("%ID%")) {
-              column = `<a href="/newAdj?entryID=${column.toString().slice(column.toString().indexOf("%ID%")+4, column.toString().indexOf("\n"))}">Adjust</a>\nDetails`
+              column = `<a style='color: blue; text-decoration-line: underline; cursor:pointer' onclick='openAdjWindow("${column.toString().slice(column.toString().indexOf('%ID%')+4, column.toString().indexOf('\n'))}")''>Adjust</a>\nDetails`
             }
             newData += `<td>${column}</td>`;
           }
