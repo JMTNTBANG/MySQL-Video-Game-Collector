@@ -16,7 +16,13 @@
     >
       <h3>Add Game to Collection</h3>
     </button>
-    <button onclick='window.location.pathname = "/newGame"' disabled>
+    <button 
+      onclick='open(
+        `/details`,
+        "newEntryWindow",
+        "height=600, width=500, left=200, top=200, menubar=no, resizeable=no, scrollbars=no, status=no"
+      );'
+    >
       <h3>Add New Game Entry</h3>
     </button>
     <button onclick='window.location.pathname = "/stats"' disabled>
