@@ -9,7 +9,7 @@ module.exports = {
       func.connectToMySQL(response, (err, db) => {
         if (err) throw err;
         db.query(
-          "SELECT * FROM Games.Accounts WHERE username = ? AND password = ?",
+          "SELECT * FROM Gaming.Accounts WHERE username = ? AND password = ?",
           [username, password],
           (err, results, fields) => {
             if (err) throw err;
