@@ -35,14 +35,14 @@ function init(prefix = "/", website = undefined) {
           },
           website
         )
-        .listen(443, () => {
-          console.log("HTTPS Server running on port 443");
+        .listen(config.port.https, () => {
+          console.log(`HTTPS Server running on port ${config.port.https}`);
         });
     } catch {
       console.warn("Caution: Connections will not be secured");
     }
-    http.createServer(website).listen(8080, () => {
-      console.log("HTTP Server running on port 8080");
+    http.createServer(website).listen(config.port.http, () => {
+      console.log(`HTTP Server running on port ${config.port.http}`);
     });
   }
 }
