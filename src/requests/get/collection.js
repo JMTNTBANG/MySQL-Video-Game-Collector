@@ -28,14 +28,13 @@ module.exports = {
                   "HasBox",
                   "HasManuals",
                   "HasOGLiner",
-                  "IsGraded",
                   "UPC",
                   "PurchaseDate",
                   "DateAdded",
                   "LastUpdated",
                 ];
                 let header = [];
-                header.push("Actions", "Qty");
+                header.push("Actions", "Qty", "Includes");
                 for (field in fields) {
                   if (hiddenColumns.includes(fields[field].name)) continue;
                   header.push(fields[field].name);
@@ -50,6 +49,20 @@ module.exports = {
                   }
                   let i = []; 
                   i.push(`%ID%${results[row].ID}\\nDetails`, qty);
+                  let iconCode = 0
+                  if (results[row].HasDisc == 1) {
+                    iconCode += 1;
+                  } 
+                  if (results[row].HasBox == 1) {
+                    iconCode += 2
+                  }
+                  if (results[row].HasManuals == 1) {
+                    iconCode += 4
+                  }
+                  if (results[row].HasOGLiner == 1) {
+                    iconCode += 8
+                  }
+                  i.push(`%IMG%${iconCode}\\n`)
                   for (column in results[row]) {
                     if (hiddenColumns.includes(column)) continue;
                     i.push(results[row][column]);
