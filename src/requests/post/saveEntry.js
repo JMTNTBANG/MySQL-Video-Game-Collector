@@ -43,8 +43,7 @@ module.exports = {
               sql.HasManuals,
               sql.HasOGLiner,
               sql.IsGraded,
-              sql.UPC,
-              sql.PurchaseDate,
+              sql.UPC
             ]],
             (err, result) => {
               if (err) {

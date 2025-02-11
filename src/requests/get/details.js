@@ -35,7 +35,6 @@ module.exports = {
                   response.send(func.sendError(err));
                   return;
                 }
-                const entry = results[0];
                 response.render(
                   `${__dirname.slice(0, -13)}/static/details.html`,
                   {
@@ -50,8 +49,7 @@ module.exports = {
                     HasManuals: entry.HasManuals,
                     HasOGLiner: entry.HasOGLiner,
                     IsGraded: entry.IsGraded,
-                    UPC: entry.UPC,
-                    PurchaseDate: entry.PurchaseDate.toISOString().slice(0,-1),
+                    UPC: entry.UPC
                   }
                 );
               }

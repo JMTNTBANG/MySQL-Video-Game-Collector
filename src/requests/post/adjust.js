@@ -7,11 +7,12 @@ module.exports = {
       const reasonCode = request.body.reasonCode;
       const amount = request.body.amount;
       const value = request.body.value;
+      const datePurchased = request.body.PurchaseDate
       func.connectToMySQL(response, (err, db) => {
         if (err) throw err;
         db.query(
-          "INSERT INTO `Gaming`.`Adjustments` (`EntryID`, `ReasonCode`, `Amount`, `ValuePer`) VALUES (?)",
-          [[entryID, reasonCode, amount, value]],
+          "INSERT INTO `Gaming`.`Adjustments` (`EntryID`, `ReasonCode`, `Amount`, `ValuePer`, `DatePurchased`) VALUES (?)",
+          [[entryID, reasonCode, amount, value, datePurchased]],
           (err, result) => {
             if (err) {
               response.send(func.sendError(err));
