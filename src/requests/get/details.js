@@ -35,6 +35,7 @@ module.exports = {
                   response.send(func.sendError(err));
                   return;
                 }
+                const entry = results[0];
                 response.render(
                   `${__dirname.slice(0, -13)}/static/details.html`,
                   {

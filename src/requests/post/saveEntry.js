@@ -21,9 +21,9 @@ module.exports = {
         IsGraded: request.body.IsGraded,
       };
       for (bool in bools) {
-        if ((bools[bool] = "on")) {
+        if (bools[bool] == "on") {
           sql[bool] = 1;
-        } else {
+        } else if (!bools[bool]) {
           sql[bool] = 0;
         }
       }
