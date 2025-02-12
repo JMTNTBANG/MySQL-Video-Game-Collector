@@ -15,7 +15,7 @@ module.exports = {
               return;
             }
             const query = url.parse(request.url, true).query;
-            let entryID = 0;
+            let entryID = 1;
             if (query.entryID) {
               entryID = query.entryID;
             }

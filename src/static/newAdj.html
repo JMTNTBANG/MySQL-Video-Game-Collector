@@ -11,6 +11,25 @@
         codes += `<option value="${i[0]}">${i[0]}. ${i[1]}</option>`;
       }
       document.getElementById("reasonCode").innerHTML = codes;
+
+      const inputElement = document.getElementById("entryID"); // Replace 'myTextbox' with the actual ID of your textbox
+      let originalValue = "";
+      fetch(`/getItems`, { method: "GET" })
+        .then((response) => response.json())
+        .then((json) => {
+          document.getElementById("entryID").max = Object.keys(json).length;
+          let titlename = json[parseInt(inputElement.value) - 1].TitleName;
+          document.getElementById("item").innerHTML = titlename;
+          originalValue = inputElement.value;
+          inputElement.addEventListener("input", () => {
+            if (inputElement.value !== originalValue) {
+              let titlename = json[parseInt(inputElement.value) - 1].TitleName;
+              document.getElementById("item").innerHTML = titlename;
+              originalValue = inputElement.value;
+            }
+          });
+        })
+        .catch(() => (document.getElementById("item").innerHTML = ""));
     };
   </script>
 </head>
@@ -28,10 +47,11 @@
           id="entryID"
           value="<%= entryID %>"
           style="width: 100px"
+          min="1"
           required
         />
+        <p id="item" style="margin-top: 0; margin-bottom: 0"></p>
       </center>
-      <br />
       <center>
         <label for="reason">Reason: </label>
         <select type="" name="reasonCode" id="reasonCode"></select>
