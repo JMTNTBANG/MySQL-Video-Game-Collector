@@ -1,4 +1,5 @@
 const func = require("../../static/func");
+const package = require("../../../package.json");
 
 module.exports = {
   init: (prefix, website) => {
@@ -72,6 +73,7 @@ module.exports = {
                 response.render(
                   `${__dirname.slice(0, -13)}/static/collection.html`,
                   {
+                    version: package.version,
                     username: request.session.vgc.username,
                     totalGames: results.length,
                     header: JSON.stringify(header),

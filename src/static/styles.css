@@ -30,3 +30,8 @@ th, td {
   justify-content: center;
   align-items: center;
 }
+
+.hiddenLink {
+  color: black;
+  text-decoration: none;
+}

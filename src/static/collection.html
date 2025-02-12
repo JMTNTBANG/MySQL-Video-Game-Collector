@@ -51,7 +51,15 @@
   </script>
 </head>
 <body>
-  <h1>Hello <%= username %>!</h1>
+  <h1>
+    <a class="hiddenLink" href="/" title="Click to go Home"
+      >VGC v<%= version %></a
+    >
+    -
+    <a class="hiddenLink" href="/logout" title="Click to Logout"
+      ><%= username %></a
+    >
+  </h1>
   <div>
     <table id="table"></table>
   </div>
