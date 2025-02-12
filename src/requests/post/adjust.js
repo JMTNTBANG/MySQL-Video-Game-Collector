@@ -7,7 +7,10 @@ module.exports = {
       const reasonCode = request.body.reasonCode;
       const amount = request.body.amount;
       const value = request.body.value;
-      const datePurchased = request.body.PurchaseDate
+      let datePurchased = request.body.PurchaseDate
+      if (datePurchased == '') {
+        datePurchased = null;
+      }
       func.connectToMySQL(response, (err, db) => {
         if (err) throw err;
         db.query(
