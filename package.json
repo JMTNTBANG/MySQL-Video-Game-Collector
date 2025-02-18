@@ -1,6 +1,6 @@
 {
   "name": "mysql-video-game-collector",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Log your Video Game Collection with this MySQL Integrated Web Interface",
   "main": "src/index.js",
   "scripts": {

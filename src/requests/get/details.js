@@ -5,7 +5,7 @@ module.exports = {
   init: (prefix, website) => {
     website.get(`${prefix}details`, (request, response) => {
       if (!request.session.vgc || !request.session.vgc.authenticated) {
-        response.redirect(`${prefix}`);
+        response.redirect(`${prefix}?redirect=${encodeURIComponent(request.url.slice(1))}`);
       } else {
         let query = url.parse(request.url, true).query;
         if (!query.entryID) {

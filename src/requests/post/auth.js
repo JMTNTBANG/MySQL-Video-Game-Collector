@@ -22,7 +22,8 @@ module.exports = {
                 username: username,
                 userid: results[0].id,
               };
-              response.redirect(prefix);
+              let redirect = request.body.redirect
+              response.redirect(prefix + redirect);
             } else {
               console.error(
                 `Failed to Authenticate ${request.ip} with Username ${username}`
