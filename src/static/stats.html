@@ -1,0 +1,21 @@
+<head>
+    <title>Video Game Collector</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>
+      <a class="hiddenLink" href="/" title="Click to go Home"
+        >VGC v<%= version %></a
+      >
+      -
+      <a class="hiddenLink" href="/logout" title="Click to Logout"
+        ><%= username %></a
+      >
+    </h1>
+    <h2>Unique Games: <%= unique %></h2>
+    <h2>Total Games: <%= total %></h2>
+    <h2>Most Collected Platform: <%= platform %></h2>
+    <h2>Most Expensive Game: <%= expensive %></h2>
+    <h2>Total Collection Value: $<%= value %></h2>
+  </body>
+  

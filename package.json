@@ -1,6 +1,6 @@
 {
   "name": "mysql-video-game-collector",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Log your Video Game Collection with this MySQL Integrated Web Interface",
   "main": "src/index.js",
   "scripts": {
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/JMTNTBANG/MySQL-Video-Game-Collector/issues"
   },
-  "homepage": "https://github.com/JMTNTBANG/MySQL-Video-Game-Collector#readme"
+  "homepage": "https://github.com/JMTNTBANG/MySQL-Video-Game-Collector#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.12.0"
+  }
 }

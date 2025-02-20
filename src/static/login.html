@@ -1,0 +1,49 @@
+<head>
+  <title>Login - VGC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirect = urlParams.get('redirect');
+    window.onload = () => {
+      if (window.location.pathname.substr(-1) == "/")
+        document.login.action = `${window.location.origin}${window.location.pathname}auth`;
+      else
+        document.login.action = `${window.location.origin}${window.location.pathname}/auth`;
+      document.getElementById("redirect").value = redirect
+    };
+  </script>
+</head>
+
+<body>
+  <div class="center">
+    <form name="login" action="/auth" method="post">
+      <center>
+        <h1>Login</h1>
+      </center>
+      <center>
+        <label for="username">Username </label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          id="username"
+          required
+        />
+      </center>
+      <br />
+      <center>
+        <label for="password">Password </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          id="password"
+          required
+        />
+      </center>
+      <br />
+      <input type="hidden" id="redirect" name="redirect" value="">
+      <center><input type="submit" value="Login" /></center>
+    </form>
+  </div>
+</body>

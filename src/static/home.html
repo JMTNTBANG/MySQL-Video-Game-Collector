@@ -1,0 +1,41 @@
+<head>
+  <title>Video Game Collector</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>
+    <a class="hiddenLink" href="/" title="Click to go Home"
+      >VGC v<%= version %></a
+    >
+    -
+    <a class="hiddenLink" href="/logout" title="Click to Logout"
+      ><%= username %></a
+    >
+  </h1>
+  <div>
+    <button onclick='window.location.pathname = "/collection"'>
+      <h3>Go to Collection</h3>
+    </button>
+    <button
+      onclick='open(
+        `/newAdj`,
+        "adjWindow",
+        "height=600, width=500, left=200, top=200, menubar=no, resizeable=no, scrollbars=no, status=no"
+      );'
+    >
+      <h3>Add Game to Collection</h3>
+    </button>
+    <button
+      onclick='open(
+        `/details`,
+        "newEntryWindow",
+        "height=600, width=500, left=200, top=200, menubar=no, resizeable=no, scrollbars=no, status=no"
+      );'
+    >
+      <h3>Add New Game Entry</h3>
+    </button>
+    <button onclick='window.location.pathname = "/stats"'>
+      <h3>Stats</h3>
+    </button>
+  </div>
+</body>

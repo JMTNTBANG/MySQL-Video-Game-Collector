@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6a8;
+}
+
+table,
+th,
+td {
+  background-color: #fdefcb;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table {
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 10%;
+}
+
+th, td {
+  padding-left: 1%;
+  white-space: pre;
+}
+
+.center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiddenLink {
+  color: black;
+  text-decoration: none;
+}

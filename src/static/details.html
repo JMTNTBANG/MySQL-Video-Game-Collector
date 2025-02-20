@@ -1,0 +1,112 @@
+<head>
+  <title>Details - VGC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    const bools = {
+      HasDisc: "<%= HasDisc %>",
+      HasBox: "<%= HasBox %>",
+      HasManuals: "<%= HasManuals %>",
+      HasOGLiner: "<%= HasOGLiner %>",
+      IsGraded: "<%= IsGraded %>",
+    };
+    window.onload = () => {
+      for (bool in bools) {
+        if (bools[bool] == "1") {
+          document.getElementById(bool).checked = true;
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <div>
+    <form name="details" action="/saveEntry" method="post">
+      <h1>Item Details</h1>
+      <label for="ID">Entry ID: </label>
+      <input
+        type="number"
+        name="ID"
+        id="ID"
+        value="<%= ID %>"
+        style="width: 50px"
+        required
+        readonly
+      />
+      <br />
+      <label for="TitleName">Title Name: </label>
+      <input
+        type="text"
+        name="TitleName"
+        id="TitleName"
+        value="<%= TitleName %>"
+        style="width: 300px"
+        required
+      />
+      <br />
+      <label for="Platform">Platform: </label>
+      <input
+        type="text"
+        name="Platform"
+        id="value"
+        value="<%= Platform %>"
+        style="width: 100px"
+        required
+      />
+      <br />
+      <label for="Publisher">Publisher: </label>
+      <input
+        type="text"
+        name="Publisher"
+        id="Publisher"
+        value="<%= Publisher %>"
+        style="width: 200px"
+        required
+      />
+      <br />
+      <label for="ModelNo">Model Number: </label>
+      <input
+        type="text"
+        name="ModelNo"
+        id="ModelNo"
+        value="<%= ModelNo %>"
+        style="width: 100px"
+        required
+      />
+      <br />
+      <label for="Region">Region: </label>
+      <input
+        type="text"
+        name="Region"
+        id="Region"
+        value="<%= Region %>"
+        style="width: 50px"
+        required
+      />
+      <br />
+      <label for="HasDisc">Has Disc? </label>
+      <input type="checkbox" name="HasDisc" id="HasDisc" />
+      <br />
+      <label for="HasBox">Has Box? </label>
+      <input type="checkbox" name="HasBox" id="HasBox" />
+      <br />
+      <label for="HasManuals">Has Manuals? </label>
+      <input type="checkbox" name="HasManuals" id="HasManuals" />
+      <br />
+      <label for="HasOGLiner">Has OG Liner? </label>
+      <input type="checkbox" name="HasOGLiner" id="HasOGLiner" />
+      <br />
+      <label for="IsGraded">Is Graded? </label>
+      <input type="checkbox" name="IsGraded" id="IsGraded" />
+      <br />
+      <label for="UPC">UPC: </label>
+      <input
+        type="text"
+        name="UPC"
+        id="UPC"
+        value="<%= UPC %>"
+        style="width: 200px"
+      />
+      <br /><input type="submit" value="Save Changes" />
+    </form>
+  </div>
+</body>
