@@ -1,0 +1,9 @@
+services:
+    vgc.jmtntbang.com:
+        container_name: vgc.jmtntbang.com
+        network_mode: bridge
+        working_dir: /app
+        ports:
+            - 55001:80
+        restart: always
+        image: vgc.jmtntbang.com:latest
